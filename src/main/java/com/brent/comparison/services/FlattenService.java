@@ -37,7 +37,7 @@ public class FlattenService {
                 List<String> newAttributeTree = new LinkedList<>(attributeTree);
                 if (ClassNameConstants.isArrayClass(nestedChangeWrapper.getClassName())) {
                     flatChanges.addAll(flattenArray(nestedChangeWrapper, newAttributeTree));
-                } else if (nestedChangeWrapper.getClassName().contains(ClassNameConstants.HashSet.getClassNameDefinition())) {
+                } else if (nestedChangeWrapper.getClassName().contains(ClassNameConstants.HashSet.getClassNameDefinition()) || nestedChangeWrapper.getClassName().contains(ClassNameConstants.LinkedHashSet.getClassNameDefinition())) {
                     flatChanges.addAll(flattenSet(nestedChangeWrapper, newAttributeTree));
                 } else {
                     newAttributeTree.add(nestedChangeWrapper.getAttributeName());

@@ -5,6 +5,7 @@ import com.brent.comparison.models.ChangeType
 import com.brent.comparison.models.ChangeWrapper
 import com.brent.comparison.models.FlatChange
 import com.brent.comparison.testData.*
+import com.brent.comparison.testData.policyDto.PolicyDTO
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.junit.Test
 import spock.lang.Shared
@@ -64,5 +65,19 @@ class ObjectComparisonServiceTest extends Specification {
                 }
             }
             results.size() == 49
+    }
+
+    def "test PolicyDTO changes"() {
+        setup: "create objectMapper"
+            ObjectMapper objectMapper1 = new ObjectMapper()
+        and: "create objects"
+            String dtoStr = TestData.getDtoStr()
+            PolicyDTO policyDTO = objectMapper1.readValue(dtoStr, PolicyDTO.class);
+            String dtoStr2 = TestData.getDtoStr2()
+            PolicyDTO policyDTO2 = objectMapper1.readValue(dtoStr2, PolicyDTO.class);
+        when:
+            List<FlatChange> changes = Compare.flatten(policyDTO, policyDTO2);
+        then:
+            changes.size() == 8
     }
 }

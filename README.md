@@ -40,6 +40,9 @@ On top of that, if given any array of objects has additions and deletions, or is
     * FlatChange object contains old and new value, a changeType (added, deleted, changed), where the change existed in the object tree, and the attribute name
 * This format helps you more clearly see the changes and where they existed, but lacks object structure
 
-12/2/2019 Updates
+12/2/2019 Updates: v1.0.3
 - Added an annotation called ExcludeFromCompare to exclude certain attributes from comparison.
 - Found a need to know annotations on a field. Added a List of CustomAnnotation objects that will pick up all attribute-level annotations, whether it's comparable or not.
+
+5/18/2020 Updates: v1.0.4
+- Added support on flatten for LinkedHashSet

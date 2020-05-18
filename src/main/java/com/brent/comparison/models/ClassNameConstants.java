@@ -4,7 +4,8 @@ public enum ClassNameConstants {
     Arrays("java.util.Arrays.ArrayList"),
     ArrayList("java.util.ArrayList"),
     List("java.util.List"),
-    HashSet("java.util.HashMap");
+    HashSet("java.util.HashMap"),
+    LinkedHashSet("java.util.LinkedHashMap");
 
     private String classNameDefinition;
 
